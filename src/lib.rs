@@ -3,11 +3,15 @@ use std::io::{self, Write};
 use std::ops::{Add, Neg};
 
 #[derive(Copy, Clone, Debug)]
-pub struct Position(f32, f32);
+pub struct Position(pub f32, pub f32);
 
 impl Position {
     pub fn origin() -> Position {
         Position(0.0, 0.0)
+    }
+
+    pub fn new(x: f32, y: f32) -> Position {
+        Position(x, y)
     }
 
     pub fn min(&self, other: &Position) -> Position {
